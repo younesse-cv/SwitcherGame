@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{d5ca0e11-c879-4ecf-8994-a0f00ef5fdfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{dde542e9-4d3e-417b-8d91-58c688fa9c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\States">
+      <UniqueIdentifier>{763dcee9-ebd1-42c6-a5d4-a36a3e008c11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\States">
+      <UniqueIdentifier>{765e5d99-fa36-4df3-86b4-b75e99f040d6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sprite.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayingGame.h">
+      <Filter>Core\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMgr.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="TimesUp.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="SwappingBack.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Refilling.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearingRowsAndUpdatingScore.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Slot.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Choosing.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="StartAnim.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroMenu.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="RNG.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Countdown.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SwapAndCheck.h">
+      <Filter>Game\States</Filter>
+    </ClInclude>
+    <ClInclude Include="JewelSprite.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayingGame.cpp">
+      <Filter>Core\States</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMgr.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Slot.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="StartAnim.cpp">
+      <Filter>Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroMenu.cpp">
+      <Filter>Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="RNG.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Choosing.cpp">
+      <Filter>Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Countdown.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SwapAndCheck.cpp">
+      <Filter>Game\States</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
