@@ -9,12 +9,13 @@ void SwapAndCheck::Enter(Game* pGame)
   chosen[0] = pGame->GetChoice(0);
   chosen[1] = pGame->GetChoice(1);
 
-  // Set those two slots to invisible
+  // Hide those slots
+  pGame->HideSlot(chosen[0].first, chosen[0].second);
+  pGame->HideSlot(chosen[1].first, chosen[1].second);
+  std::cout << "Swap and Check - Enter Successful!\n";
 
-  // And create two Jewel sprites
+  // Create 2 GameObjects
 
-  
-  
 }
 
 void SwapAndCheck::Exit(Game* pGame)

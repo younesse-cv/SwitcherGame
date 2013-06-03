@@ -51,7 +51,7 @@ bool Sprite::Blit(SDL_Surface* dest, int x, int y)
   return true;
 };
 
-
+/*********************************************************/
 void Sprite::SetTexture(HTEXTURE t, int x, int y, int w, int h)
 {
   texture = t;
@@ -59,4 +59,24 @@ void Sprite::SetTexture(HTEXTURE t, int x, int y, int w, int h)
   iY = y;
   iWidth = w;
   iHeight = h;
+}
+/*********************************************************/
+int Sprite::GetX()
+{
+  return iX;
+}
+/*********************************************************/
+int Sprite::GetY()
+{
+  return iY;
+}
+/*********************************************************/
+int Sprite::GetW()
+{
+  return iWidth;
+}
+/*********************************************************/
+int Sprite::GetH()
+{
+  return iHeight;
 }

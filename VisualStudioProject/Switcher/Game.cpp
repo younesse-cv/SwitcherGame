@@ -124,6 +124,8 @@ void Game::Populate()
 
 /************************************************************/
 
+/************************************************************/
+
 void Game::CreateJewelSprites()
 {
   std::cout << "Creating Jewel Sprites!\n";
@@ -139,6 +141,11 @@ void Game::CreateJewelSprites()
 
   HTEXTURE tex = TextureMgr::Instance()->GetTexture(SELECTED_JEWEL);
   pMarker = new Sprite(tex, 0, 0, tex->w, tex->h);
+
+  // Create empty jewel ( for jewel animations ) 
+  HTEXTURE hBkg = TextureMgr::Instance()->GetTexture(BACKGROUND);
+  pEmpty = new Sprite(hBkg, GRID_START_X+SLOT_WIDTH, GRID_START_Y+SLOT_HEIGHT, SLOT_WIDTH, SLOT_HEIGHT );
+  pEmpty->SetAnchorPoint(SLOT_WIDTH/2, SLOT_HEIGHT/2);
 }
 
 /************************************************************/
@@ -154,11 +161,24 @@ void Game::CreateBackgroundSprites()
 
   HTEXTURE hTimeLeft = TextureMgr::Instance()->GetTexture(TIMELEFT);
   pTimeLeftSprite = new Sprite(hTimeLeft, 0, 0, hTimeLeft->w, hTimeLeft->h);
+
+  
 }
 
 
 /************************************************************/
 
+void Game::HideSlot(int iColumn, int iRow)
+{
+  Slot * s = columns[iColumn][iRow];
+  s->Hide();
+
+  std::cout << "Hiding Slot at iColumn: " << iColumn << ", IRow " << iRow << "\n";
+
+  bGridNeedsRedraw = true;
+}
+
+/************************************************************/
 
 void Game::ShowSlot(int iColumn, int iRow)
 {
@@ -223,7 +243,7 @@ void Game::StartCountdown()
 {
   pClock->Start();
 }
-
+/************************************************************/
 void Game::ChangeState(State<Game>* state)
 {
 	if( !states.empty() )
@@ -236,7 +256,7 @@ void Game::ChangeState(State<Game>* state)
 	states.push_back(state);
 	states.back()->Enter(this);
 }
-
+/************************************************************/
 void Game::PushState(State<Game>* state)
 {
 	if(!states.empty())
@@ -318,10 +338,16 @@ void Game::DrawGridSprites()
     for(Column::iterator it = columns[i].begin(); it != columns[i].end(); it++)
     {
 	    Slot * s = *it;
-	    if(s->Visible() && s->Occupied())
-	    {
-	      int iType = static_cast<int>(s->GetType());
-	      jewel_sprites[iType]->Blit(m_pGameScreen, s->CentreX(), s->CentreY());
+      if( false == s->Visible() || false == s->Occupied() )
+      {
+        std::cout << "Not visible  on Column " << i << "\n";
+        // we blit with the "empty jewel" sprite
+        pEmpty->Blit(m_pGameScreen, s->CentreX(), s->CentreY());
+      }
+      else
+      {
+        int iType = static_cast<int>(s->GetType());
+        jewel_sprites[iType]->Blit(m_pGameScreen, s->CentreX(), s->CentreY());
 
         if(s->Selected())
         {

@@ -24,6 +24,9 @@ public:
   int GetX();
   int GetY();
 
+  int GetW();
+  int GetH();
+
 private:
   int iAnchorX;
   int iAnchorY;

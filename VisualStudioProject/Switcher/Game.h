@@ -33,7 +33,11 @@ public:
   void InitialiseGridPositions();
   void CreateBackgroundSprites();
   void CreateJewelSprites();
+  
   void ShowSlot(int iColumn, int iRow);
+  void HideSlot(int iColumn, int iRow);
+
+
   void SelectSlot(std::pair<int, int> pos);
   void DeselectSlot(std::pair<int, int> pos);
 
@@ -71,6 +75,8 @@ private:
   Sprite * pScoreSprite;
   Sprite * pTimeLeftSprite;
   Sprite * pMarker;
+  Sprite * pEmpty;
+
   // Jewels
   std::vector<Sprite *> jewel_sprites;
 

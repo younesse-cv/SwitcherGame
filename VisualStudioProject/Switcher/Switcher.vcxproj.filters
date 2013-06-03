@@ -75,6 +75,9 @@
     <ClInclude Include="JewelSprite.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -118,6 +121,9 @@
     </ClCompile>
     <ClCompile Include="SwapAndCheck.cpp">
       <Filter>Game\States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
