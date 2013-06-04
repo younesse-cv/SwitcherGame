@@ -340,7 +340,7 @@ void Game::DrawGridSprites()
 	    Slot * s = *it;
       if( false == s->Visible() || false == s->Occupied() )
       {
-        std::cout << "Not visible  on Column " << i << "\n";
+        //std::cout << "Not visible  on Column " << i << "\n";
         // we blit with the "empty jewel" sprite
         pEmpty->Blit(m_pGameScreen, s->CentreX(), s->CentreY());
       }
