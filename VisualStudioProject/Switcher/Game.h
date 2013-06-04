@@ -57,6 +57,8 @@ public:
 
   void StartCountdown();
   std::pair<int, int> MouseToSlot(int,int);
+
+  int GetElapsedTime();
 private:
   
 	std::vector<State<Game>*> states;

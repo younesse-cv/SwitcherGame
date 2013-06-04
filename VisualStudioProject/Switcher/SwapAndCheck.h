@@ -41,6 +41,9 @@ private:
 
   std::pair<int, int> topXY;
   std::pair<int, int> bottXY;
+
+  std::pair<int, int> targetTopXY;
+  std::pair<int, int> targetBottXY;
 };
 
 #endif

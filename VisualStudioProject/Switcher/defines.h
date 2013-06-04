@@ -94,4 +94,14 @@ const int TIMELEFT_Y = 184;
 const int SCOREBOX_X = 17;
 const int SCOREBOX_Y = 94;
 
+// Animations
+const int STAY_HORIZONTAL = 0;
+const int STAY_VERTICAL = 0;
+
+// Velocity is in pixels per second.
+const int SWAP_SPEED = 1;
+
+
+
+
 #endif // DEFINES_H

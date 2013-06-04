@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <iostream>
 
 /************************************************************/
 GameObject::GameObject(Sprite * s):
@@ -45,8 +46,9 @@ int  GameObject::GetY()
 /************************************************************/
 void GameObject::Update(int iElapsedMS)
 {
-  iXPos += iElapsedMS * iXVel;
-  iYPos += iElapsedMS * iYVel;
+  std::cout << "update Game Object\n";
+  iXPos += iElapsedMS * (iXVel/1000);
+  iYPos += iElapsedMS * (iYVel/1000);
 }
 /************************************************************/
 void GameObject::Draw(SDL_Surface * pSurface)

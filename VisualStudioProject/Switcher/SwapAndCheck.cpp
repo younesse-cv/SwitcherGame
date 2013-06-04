@@ -21,10 +21,53 @@ void SwapAndCheck::Enter(Game* pGame)
   top = new GameObject(pGame->GetJewelSprite(t->GetType()));
   bottom = new GameObject(pGame->GetJewelSprite(b->GetType()));
 
-  // Set their positions
-  
+  // Set their current positions and target positions
   topXY = std::make_pair(t->CentreX(), t->CentreY());
   bottXY = std::make_pair(b->CentreX(), b->CentreY());
+
+  targetTopXY = std::make_pair(b->CentreX(), b->CentreY());
+  targetBottXY = std::make_pair(t->CentreX(), t->CentreY());
+
+  // Set the velocity vector depending on orientation 
+  // ( we're talking vector not magnitude )
+  
+  if( targetTopXY.first == topXY.first )
+  {
+    // stays vertical - but which direction?
+    if( targetTopXY.second < topXY.second )
+    {
+      // top going up (but y coords decrease the further up you go)
+      // bottom down.
+      top->SetVelocity(STAY_VERTICAL, SWAP_SPEED * -1);
+      bottom->SetVelocity(STAY_VERTICAL, SWAP_SPEED);
+    }
+    else
+    {
+      // top is going down, bottom is going up.
+      top->SetVelocity(STAY_VERTICAL, SWAP_SPEED);
+      bottom->SetVelocity(STAY_VERTICAL, SWAP_SPEED * -1);
+    }
+  }
+  else
+  if( targetTopXY.second == topXY.second )
+  {
+    // movement is horizontal ( y's are equal )
+    // but which direction?
+    if( targetTopXY.first < topXY.first )
+    {
+      // top going left 
+      // bottom goes to right
+      top->SetVelocity(SWAP_SPEED * -1, STAY_HORIZONTAL);
+      bottom->SetVelocity(SWAP_SPEED, STAY_VERTICAL);
+    }
+    else
+    {
+      // top goes right, 
+      // bottom goes left.
+      top->SetVelocity(SWAP_SPEED, STAY_HORIZONTAL);
+      bottom->SetVelocity(SWAP_SPEED * -1, STAY_VERTICAL);
+    }
+  }
 
   top->SetPosition(topXY.first, topXY.second);
   bottom->SetPosition(bottXY.first, bottXY.second);
@@ -50,10 +93,8 @@ void SwapAndCheck::HandleEvents(Game * pGame)
 
 void SwapAndCheck::Update(Game* pGame)
 {
-  topXY.first++;
-  top->SetPosition(topXY.first, topXY.second);
-  bottXY.first--;
-  bottom->SetPosition(bottXY.first, bottXY.second);
+  top->Update(pGame->GetElapsedTime());
+  bottom->Update(pGame->GetElapsedTime());
 }
 
 // Blit any sprites for this state

@@ -401,3 +401,10 @@ void Game::Quit()
 {
 
 }
+
+/************************************************************/
+
+int Game::GetElapsedTime()
+{
+  return iFrameTime;
+}
