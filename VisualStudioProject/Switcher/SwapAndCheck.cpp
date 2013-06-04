@@ -22,11 +22,12 @@ void SwapAndCheck::Enter(Game* pGame)
   bottom = new GameObject(pGame->GetJewelSprite(b->GetType()));
 
   // Set their positions
-  top->SetX(t->X());
-  top->SetY(t->Y());
+  
+  topXY = std::make_pair(t->CentreX(), t->CentreY());
+  bottXY = std::make_pair(b->CentreX(), b->CentreY());
 
-  bottom->SetX(b->X());
-  bottom->SetY(b->Y());
+  top->SetPosition(topXY.first, topXY.second);
+  bottom->SetPosition(bottXY.first, bottXY.second);
 
   pGameScreen = pGame->GetScreen();
 }
@@ -49,7 +50,10 @@ void SwapAndCheck::HandleEvents(Game * pGame)
 
 void SwapAndCheck::Update(Game* pGame)
 {
-   
+  topXY.first++;
+  top->SetPosition(topXY.first, topXY.second);
+  bottXY.first--;
+  bottom->SetPosition(bottXY.first, bottXY.second);
 }
 
 // Blit any sprites for this state

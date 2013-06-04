@@ -38,6 +38,9 @@ private:
   SDL_Surface* pGameScreen;
   GameObject * top;
   GameObject * bottom;
+
+  std::pair<int, int> topXY;
+  std::pair<int, int> bottXY;
 };
 
 #endif
