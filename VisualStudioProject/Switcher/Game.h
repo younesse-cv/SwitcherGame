@@ -34,12 +34,16 @@ public:
   void CreateBackgroundSprites();
   void CreateJewelSprites();
   
+
+  Sprite * GetJewelSprite(JewelType t);
+
   void ShowSlot(int iColumn, int iRow);
   void HideSlot(int iColumn, int iRow);
 
-
   void SelectSlot(std::pair<int, int> pos);
   void DeselectSlot(std::pair<int, int> pos);
+
+  Slot * GetSlot(int iColumn, int iRow);
 
   void SetChoices(std::pair<int,int>, std::pair<int,int>);
   std::pair<int,int> GetChoice(int iWhich);

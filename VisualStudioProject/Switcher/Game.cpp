@@ -149,8 +149,11 @@ void Game::CreateJewelSprites()
 }
 
 /************************************************************/
-
-
+Sprite * Game::GetJewelSprite(JewelType t)
+{
+  return jewel_sprites[static_cast<int>(t)];
+}
+/************************************************************/
 void Game::CreateBackgroundSprites()
 {
   HTEXTURE hBkg = TextureMgr::Instance()->GetTexture(BACKGROUND);
@@ -210,6 +213,14 @@ void Game::DeselectSlot(std::pair<int, int> pos)
 }
 
 /************************************************************/
+
+Slot * Game::GetSlot(int iColumn, int iRow)
+{
+  return columns[iColumn][iRow];
+}
+
+/************************************************************/
+
 void Game::SetChoices(std::pair<int,int> one, std::pair<int,int> two)
 {
   chosen[0] = one;

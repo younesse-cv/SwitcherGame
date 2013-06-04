@@ -5,6 +5,7 @@
 #include "State.h"
 #include "Sprite.h"
 #include "Game.h"
+#include "GameObject.h"
 
 class SwapAndCheck : public State<Game>
 {
@@ -34,9 +35,9 @@ protected:
 private:
   
   std::pair<int,int> chosen[2];
-
-  Sprite * first;
-  Sprite * second;
+  SDL_Surface* pGameScreen;
+  GameObject * top;
+  GameObject * bottom;
 };
 
 #endif

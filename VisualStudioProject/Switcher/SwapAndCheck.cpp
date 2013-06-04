@@ -14,8 +14,21 @@ void SwapAndCheck::Enter(Game* pGame)
   pGame->HideSlot(chosen[1].first, chosen[1].second);
   std::cout << "Swap and Check - Enter Successful!\n";
 
-  // Create 2 GameObjects
+  Slot * t = pGame->GetSlot(chosen[0].first, chosen[0].second);
+  Slot * b = pGame->GetSlot(chosen[1].first, chosen[1].second);
 
+  // Create 2 GameObjects
+  top = new GameObject(pGame->GetJewelSprite(t->GetType()));
+  bottom = new GameObject(pGame->GetJewelSprite(b->GetType()));
+
+  // Set their positions
+  top->SetX(t->X());
+  top->SetY(t->Y());
+
+  bottom->SetX(b->X());
+  bottom->SetY(b->Y());
+
+  pGameScreen = pGame->GetScreen();
 }
 
 void SwapAndCheck::Exit(Game* pGame)
@@ -42,7 +55,9 @@ void SwapAndCheck::Update(Game* pGame)
 // Blit any sprites for this state
 void SwapAndCheck::Draw(Game *pGame)
 {
-  
+  // draw these two GameObjects we created
+  top->Draw(pGameScreen);
+  bottom->Draw(pGameScreen);
 }
 
 SwapAndCheck SwapAndCheck::m_SwapAndCheck;
